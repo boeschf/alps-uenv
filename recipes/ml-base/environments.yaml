@@ -1,0 +1,97 @@
+ml-base-env:
+  compiler:
+      - toolchain: gcc
+        spec: gcc
+  mpi:
+      spec: cray-mpich@8.1.28
+      gpu: cuda
+  unify: true
+  specs:
+  - aws-ofi-nccl@master
+  - xpmem
+  - cmake
+  - cuda@12.3
+  - fftw
+  - fmt
+  - hdf5
+  - nccl
+  - ninja
+  - openblas threads=openmp
+  #- armpl-gcc threads=openmp
+  - cutensor
+  - python@3.11
+  - py-nvidia-dali
+  - py-pip
+  - py-torch@2.2 +distributed +cuda +cudnn +nccl +mpi
+  - py-torchaudio
+  - py-torchmetrics
+  - py-torchvision +ffmpeg +nvjpeg +video_codec
+  - py-astunparse
+  - py-calver
+  - py-certifi
+  - py-charset-normalizer
+  - py-cython
+  - py-decorator
+  - py-dm-tree
+  - py-docutils
+  - py-editables
+  - py-filelock
+  - py-flit-core
+  - py-fsspec
+  - py-gast
+  - py-hatchling
+  - py-hatch-vcs
+  - py-idna
+  - py-jinja2
+  - py-lightning-utilities
+  - py-markupsafe
+  - py-mpmath
+  - py-numpy
+  - py-packaging
+  - py-pathspec
+  - py-pluggy
+  - py-protobuf
+  - py-pybind11
+  - py-pyproject-metadata
+  - py-requests
+  - py-setuptools
+  - py-six
+  - py-sympy
+  - py-tomli
+  - py-tqdm
+  - py-trove-classifiers
+  - py-typing-extensions
+  - py-urllib3
+  - py-wheel
+  - py-networkx +default
+  - py-pillow +jpeg +zlib
+  - py-pyyaml +libyaml
+  - py-setuptools-scm +toml
+  - py-versioneer +toml
+  - py-yarl
+  - py-transformers
+  #- py-datasets -> doesn't work because of dependency scipy
+  #- py-scipy -> doesn't compile on arm
+  - py-tensorboardx
+  - py-pytest
+  - py-pytest-xdist
+  - py-execnet
+  - py-huggingface-hub
+  - py-iniconfig
+  - py-maturin
+  - py-multidict
+  - py-regex
+  - py-safetensors
+  - py-semantic-version
+  - py-setuptools-rust
+  - py-tokenizers
+  - py-transformers
+  - py-einops
+  - py-ninja
+  variants:
+  - +mpi
+  - +cuda
+  - cuda_arch=90
+  views:
+    default:
+      link: all
