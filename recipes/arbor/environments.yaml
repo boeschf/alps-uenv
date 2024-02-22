@@ -1,0 +1,48 @@
+arbor-env:
+  compiler:
+      - toolchain: gcc
+        spec: gcc
+  mpi:
+      spec: cray-mpich@8.1.28
+      gpu: cuda
+  unify: true
+  specs:
+  - aws-ofi-nccl@master
+  - xpmem
+  - cmake
+  - ninja
+  - meson
+  - uncrustify
+  - cuda@12.3
+  - openblas threads=openmp
+  - fmt
+  - hwloc
+  - boost +thread +multithreaded +pic cxxstd=17 visibility=hidden
+  - valgrind
+  - random123
+  - googletest cxxstd=17
+  - catch2 +ipo
+  - pugixml +ipo
+  - nlohmann-json +ipo
+  - python@3.11
+  - py-pip
+  - py-numpy
+  - py-mpi4py
+  - py-sphinx
+  - py-svgwrite
+  - py-pybind11
+  - py-seaborn
+  - py-flake8
+  - py-black
+  - py-pytest
+  - py-yamlreader
+  #- py-furo
+  - py-cmake-format
+  - py-mypy
+  variants:
+  - +mpi
+  - +cuda
+  - cuda_arch=90
+  views:
+    default:
+      link: all

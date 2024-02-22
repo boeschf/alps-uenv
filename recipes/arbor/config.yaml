@@ -1,0 +1,7 @@
+name: arbor
+spack:
+  commit: origin/develop
+  repo: https://github.com/spack/spack.git
+store: /user-environment
+description: Toolchain for Arbor
+
