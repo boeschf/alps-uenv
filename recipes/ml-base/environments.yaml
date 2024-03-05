@@ -18,6 +18,7 @@ ml-base-env:
   - ninja
   - openblas threads=openmp
   #- armpl-gcc threads=openmp
+  - cudnn
   - cutensor
   - python@3.11
   - py-nvidia-dali
@@ -70,8 +71,8 @@ ml-base-env:
   - py-versioneer +toml
   - py-yarl
   - py-transformers
-  #- py-datasets -> doesn't work because of dependency scipy
-  #- py-scipy -> doesn't compile on arm
+  - py-datasets
+  - py-scipy
   - py-tensorboardx
   - py-pytest
   - py-pytest-xdist
@@ -85,7 +86,6 @@ ml-base-env:
   - py-semantic-version
   - py-setuptools-rust
   - py-tokenizers
-  - py-transformers
   - py-einops
   - py-ninja
   variants:
