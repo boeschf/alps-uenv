@@ -16,78 +16,100 @@ ml-base-env:
   - hdf5
   - nccl
   - ninja
+  - gperftools
   - openblas threads=openmp
   #- armpl-gcc threads=openmp
   - cudnn
   - cutensor
+  - swig
+  - libaio
   - python@3.11
-  - py-nvidia-dali
   - py-pip
-  - py-torch@2.2 +distributed +cuda +cudnn +nccl +mpi
-  - py-torchaudio
-  - py-torchmetrics
-  - py-torchvision +ffmpeg +nvjpeg +video_codec
-  - py-astunparse
-  - py-calver
-  - py-certifi
-  - py-charset-normalizer
   - py-cython
-  - py-decorator
-  - py-dm-tree
-  - py-docutils
-  - py-editables
-  - py-filelock
-  - py-flit-core
-  - py-fsspec
-  - py-gast
-  - py-hatchling
-  - py-hatch-vcs
-  - py-idna
-  - py-jinja2
-  - py-lightning-utilities
-  - py-markupsafe
-  - py-mpmath
-  - py-numpy
+  - py-setuptools
+  - py-setuptools-scm +toml
+  - py-setuptools-rust
+  - py-wheel
   - py-packaging
   - py-pathspec
-  - py-pluggy
-  - py-protobuf
   - py-pybind11
-  - py-pyproject-metadata
-  - py-requests
-  - py-setuptools
-  - py-six
+  - py-pluggy
+  - py-ninja
+  - py-numpy
   - py-sympy
-  - py-tomli
-  - py-tqdm
-  - py-trove-classifiers
-  - py-typing-extensions
-  - py-urllib3
-  - py-wheel
-  - py-networkx +default
-  - py-pillow +jpeg +zlib
-  - py-pyyaml +libyaml
-  - py-setuptools-scm +toml
-  - py-versioneer +toml
-  - py-yarl
-  - py-transformers
-  - py-datasets
   - py-scipy
-  - py-tensorboardx
   - py-pytest
   - py-pytest-xdist
-  - py-execnet
+  - py-torch@2.2 +distributed +cuda +cudnn +nccl +mpi
+  - py-torchvision +ffmpeg +nvjpeg +video_codec
+  - py-torchaudio
+  - py-torchmetrics
   - py-huggingface-hub
-  - py-iniconfig
-  - py-maturin
-  - py-multidict
-  - py-regex
-  - py-safetensors
-  - py-semantic-version
-  - py-setuptools-rust
+  - py-nvidia-dali
+  - py-zarr
+  #- py-onnx
+  - py-nvtx
+  - py-deepspeed
+  - py-accelerate
+  - py-datasets
   - py-tokenizers
+  - py-sentencepiece
+  - py-transformers
   - py-einops
-  - py-ninja
+  - py-hatchling
+  - arrow +parquet +snappy +zlib +zstd +brotli +compute 
+  - py-nltk
+  #- py-psutil
+  #- py-pydantic
+  #- py-click
+  #- py-joblib
+  #- py-astunparse
+  #- py-calver
+  #- py-certifi
+  #- py-charset-normalizer
+  #- py-decorator
+  #- py-dm-tree
+  #- py-docutils
+  #- py-editables
+  #- py-filelock
+  #- py-flit-core
+  #- py-protobuf
+  #- py-fsspec
+  #- py-gast
+  #- py-hatchling
+  #- py-hatch-vcs
+  #- py-idna
+  #- py-jinja2
+  #- py-lightning-utilities
+  #- py-markupsafe
+  #- py-mpmath
+  #- py-pyproject-metadata
+  #- py-requests
+  #- py-six
+  #- py-tomli
+  #- py-tqdm
+  #- py-trove-classifiers
+  #- py-typing-extensions
+  #- py-urllib3
+  #- py-networkx +default
+  #- py-pillow +jpeg +zlib
+  #- py-pyyaml +libyaml
+  #- py-versioneer +toml
+  #- py-yarl
+  #- py-transformers
+  #- py-datasets
+  #- py-tensorboardx
+  #- py-execnet
+  ##- py-arrow
+  #- arrow +parquet +snappy +zlib +zstd +brotli +compute 
+  #- py-pyarrow +dataset +parquet
+  #- py-iniconfig
+  #- py-maturin
+  #- py-multidict
+  #- py-regex
+  #- py-safetensors
+  #- py-semantic-version
+  #- py-tokenizers
   variants:
   - +mpi
   - +cuda

@@ -1,7 +1,7 @@
 name: ml-base
 spack:
-  commit: origin/develop
-  repo: https://github.com/spack/spack.git
+  commit: origin/ml
+  repo: https://github.com/boeschf/spack.git
 store: /user-environment
 description: Toolchain for Machine Learning, PyTorch and other development tools
 
