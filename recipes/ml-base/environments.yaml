@@ -3,7 +3,7 @@ ml-base-env:
       - toolchain: gcc
         spec: gcc
   mpi:
-      spec: cray-mpich@8.1.28
+      spec: cray-mpich@8.1.29
       gpu: cuda
   unify: true
   specs:
