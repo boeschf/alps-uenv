@@ -44,6 +44,7 @@ ml-base-env:
   - py-torchvision +ffmpeg +nvjpeg +video_codec
   - py-torchaudio
   - py-torchmetrics
+  - py-torch-nvidia-apex
   - py-huggingface-hub
   - py-nvidia-dali
   - py-zarr
@@ -53,6 +54,7 @@ ml-base-env:
   - py-accelerate
   - py-datasets
   - py-tokenizers
+  - sentencepiece ~with-TCMalloc
   - py-sentencepiece
   - py-transformers
   - py-einops

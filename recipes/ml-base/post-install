@@ -42,8 +42,8 @@ install_pp() {(
         -m pip -vvv --no-input --no-cache-dir --disable-pip-version-check \
         install --no-build-isolation --no-warn-script-location --no-index \
         ${extra_config2} \
-        git+${git_url}${git_tag} \
-        ${extra_config}
+        ${extra_config} \
+        git+${git_url}${git_tag}
 
     echo ""
 )}
@@ -69,10 +69,10 @@ install_pp -u "https://github.com/NVIDIA/TransformerEngine.git" -t "@main" \
 #install_pp -u "https://github.com/NVIDIA/apex.git" -t "@b496d85fb88a801d8e680872a12822de310951fd" \
 #    -e "TORCH_CUDA_ARCH_LIST=9.0" \
 #    -c "--config-settings \"--build-option=--cpp_ext\" --config-settings \"--build-option=--cuda_ext\""
-install_pp -u "https://github.com/boeschf/apex.git" -t "@package" \
-    -e "TORCH_CUDA_ARCH_LIST=9.0" \
-    -c "--config-settings \"--build-option=--cpp_ext\" --config-settings \"--build-option=--cuda_ext\"" \
-    -q "--global-option=\"--cpp_ext\" --global-option=\"--cuda_ext\""
+#install_pp -u "https://github.com/boeschf/apex.git" -t "@package" \
+#    -e "TORCH_CUDA_ARCH_LIST=9.0" \
+#    -c "--config-settings \"--build-option=--cpp_ext\" --config-settings \"--build-option=--cuda_ext\"" \
+#    -q "--global-option=\"--cpp_ext\" --global-option=\"--cuda_ext\""
 
 # nltk
 #install_pp -u "https://github.com/nltk/nltk.git" -t "@f2a92bd7e360e39a4439e4d97540fd68f2721451"
