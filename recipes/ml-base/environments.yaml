@@ -42,11 +42,13 @@ ml-base-env:
   - py-scipy%gcc
   - py-pytest%gcc
   - py-pytest-xdist%gcc
-  - py-torch@2.2%gcc +distributed +cuda +cudnn +nccl +mpi
-  - py-torchvision%gcc +ffmpeg +nvjpeg +video_codec
-  - py-torchaudio%gcc
-  - py-torchmetrics%gcc
+  - py-torch@main%gcc +distributed +cuda +cudnn +nccl +mpi
+  - py-torchvision@main%gcc +ffmpeg +nvjpeg +video_codec
+  - py-torchaudio@main%gcc
+  - py-torchmetrics@main%gcc
+  #- py-triton@main%gcc
   #- py-torch-nvidia-apex@master%gcc
+  - py-torch-nvidia-apex@master%gcc
   - py-huggingface-hub%gcc
   - py-nvidia-dali%gcc
   - py-zarr%gcc

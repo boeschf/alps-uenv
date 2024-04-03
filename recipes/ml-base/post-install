@@ -47,6 +47,9 @@ install_pp() {(
 
     echo ""
 )}
+
+pip install --upgrade pip setuptools wheel
+
 # pyarrow-hotfix
 install_pp -u "https://github.com/pitrou/pyarrow-hotfix.git" -t "@v0.6"
 
@@ -69,10 +72,10 @@ install_pp -u "https://github.com/NVIDIA/TransformerEngine.git" -t "@main" \
 #install_pp -u "https://github.com/NVIDIA/apex.git" -t "@b496d85fb88a801d8e680872a12822de310951fd" \
 #    -e "TORCH_CUDA_ARCH_LIST=9.0" \
 #    -c "--config-settings \"--build-option=--cpp_ext\" --config-settings \"--build-option=--cuda_ext\""
-install_pp -u "https://github.com/boeschf/apex.git" -t "@package" \
-    -e "TORCH_CUDA_ARCH_LIST=9.0" \
-    -c "--config-settings \"--build-option=--cpp_ext\" --config-settings \"--build-option=--cuda_ext\"" \
-    -q "--global-option=\"--cpp_ext\" --global-option=\"--cuda_ext\""
+#install_pp -u "https://github.com/boeschf/apex.git" -t "@package" \
+#    -e "TORCH_CUDA_ARCH_LIST=9.0" \
+#    -c "--config-settings \"--build-option=--cpp_ext\" --config-settings \"--build-option=--cuda_ext\"" \
+#    -q "--global-option=\"--cpp_ext\" --global-option=\"--cuda_ext\""
 
 # nltk
 #install_pp -u "https://github.com/nltk/nltk.git" -t "@f2a92bd7e360e39a4439e4d97540fd68f2721451"
@@ -84,5 +87,7 @@ install_pp -u "https://github.com/boeschf/apex.git" -t "@package" \
 ##install_pp -u "https://github.com/huggingface/nanotron.git" -t "@v0.4"
 
 # triton
-install_pp -u "https://github.com/openai/triton.git" -t "@main#subdirectory=python" \
+#install_pp -u "https://github.com/openai/triton.git" -t "@main#subdirectory=python" \
+#    -e "TRITON_BUILD_WITH_CLANG_LLD=true"
+install_pp -u "https://github.com/openai/triton.git" -t "@989adb9a29496c22a36ef82ca69cad5dad536b9c#subdirectory=python" \
     -e "TRITON_BUILD_WITH_CLANG_LLD=true"
