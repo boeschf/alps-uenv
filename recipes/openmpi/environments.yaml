@@ -1,0 +1,24 @@
+ompi-env:
+  compiler:
+      - toolchain: gcc
+        spec: gcc
+  unify: true
+  specs:
+  - xpmem
+  - cmake
+  - cuda@12.3
+  #- gdrcopy
+  - aws-ofi-nccl@master
+  - nccl
+  - gdb
+  - htop
+  - libfabric fabrics=sockets,tcp,udp,shm,cxi
+  - openmpi +cuda +orterunprefix +legacylaunchers +internal-pmix fabrics=cma,xpmem,ofi schedulers=slurm 
+  - osu-micro-benchmarks
+  variants:
+  - +cuda
+  - cuda_arch=90
+  - +mpi
+  views:
+    default:
+      link: all

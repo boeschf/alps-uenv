@@ -1,0 +1,7 @@
+name: opmpi
+spack:
+  commit: develop
+  repo: https://github.com/spack/spack.git
+store: /user-environment
+description: Bare bones openmpi
+
