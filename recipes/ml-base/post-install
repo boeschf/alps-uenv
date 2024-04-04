@@ -1,11 +1,12 @@
 #! /bin/bash
 
+mpi_loc=$(spack -C {{ env.config }} location -i cray-mpich)
+
 . {{ env.mount }}/env/._default/*/activate.sh
 
-pp_path=$(python3 -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')
-echo "pp_path = ${pp_path}"
-
-echo "pwd = $(pwd)"
+#pp_path=$(python3 -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')
+#echo "pp_path = ${pp_path}"
+#echo "pwd = $(pwd)"
 
 #CXX=g++ CC=gcc MAX_JOBS=250 python -m pip -vvv --no-input --no-cache-dir --disable-pip-version-check install --no-binary :all: --dry-run
 
@@ -65,8 +66,10 @@ install_pp -u "https://github.com/Dao-AILab/flash-attention.git" -t "@v2.4.2" \
 #install_pp -u "https://github.com/huggingface/accelerate.git" -t "@v0.27.2"
 
 # TransformerEngine
-install_pp -u "https://github.com/NVIDIA/TransformerEngine.git" -t "@main" \
-    -e "NVTE_FRAMEWORK=pytorch"
+#install_pp -u "https://github.com/NVIDIA/TransformerEngine.git" -t "@main" \
+#    -e "NVTE_FRAMEWORK=pytorch NVTE_WITH_USERBUFFERS=1"
+install_pp -u "https://github.com/aleskubicek/TransformerEngine.git" -t "@build_aarch64" \
+    -e "NVTE_FRAMEWORK=pytorch NVTE_WITH_USERBUFFERS=1 MPI_HOME=${mpi_loc}"
 
 # apex
 #install_pp -u "https://github.com/NVIDIA/apex.git" -t "@b496d85fb88a801d8e680872a12822de310951fd" \

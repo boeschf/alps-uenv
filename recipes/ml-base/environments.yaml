@@ -9,6 +9,7 @@ ml-base-env:
       gpu: cuda
   unify: true
   specs:
+  - cray-mpich%gcc
   - aws-ofi-nccl@master%gcc
   - xpmem%gcc
   - cmake%gcc
@@ -48,7 +49,7 @@ ml-base-env:
   - py-torchmetrics@main%gcc
   #- py-triton@main%gcc
   #- py-torch-nvidia-apex@master%gcc
-  - py-torch-nvidia-apex@master%gcc
+  - py-torch-nvidia-apex@master%gcc +fast_layer_norm +dist_adam
   - py-huggingface-hub%gcc
   - py-nvidia-dali%gcc
   - py-zarr%gcc
