@@ -1,0 +1,75 @@
+ml-base-env:
+  compiler:
+      - toolchain: gcc
+        spec: gcc
+          #    - toolchain: llvm
+          # spec: llvm@17
+  mpi:
+      spec: cray-mpich@8.1.29
+      gpu: cuda
+  unify: true
+  specs:
+  - cray-mpich%gcc
+  - aws-ofi-nccl@master%gcc
+  - xpmem%gcc
+  - cmake%gcc
+  - cuda@12.3%gcc
+  - fftw%gcc
+  - fmt%gcc
+  - hdf5%gcc +mpi +direct-vfd
+  - nccl%gcc
+  - ninja%gcc
+  - gperftools%gcc
+  - openblas%gcc threads=openmp
+  #- armpl-gcc%gcc threads=openmp
+  - cudnn%gcc
+  - cutensor%gcc
+  - swig%gcc
+  - libaio%gcc
+  - python@3.11%gcc
+  - py-pip%gcc
+  - py-cython%gcc
+  - py-setuptools%gcc
+  - py-setuptools-scm%gcc +toml
+  - py-setuptools-rust%gcc
+  - py-wheel%gcc
+  - py-packaging%gcc
+  - py-pathspec%gcc
+  - py-pybind11%gcc
+  - py-pluggy%gcc
+  - py-ninja%gcc
+  - py-numpy%gcc
+  - py-sympy%gcc
+  - py-scipy%gcc
+  - py-pytest%gcc
+  - py-pytest-xdist%gcc
+  - py-torch@2.2.2%gcc +distributed +cuda +cudnn +nccl +mpi
+  - py-torchvision%gcc +ffmpeg +nvjpeg +video_codec
+  - py-torchaudio%gcc
+  - py-torchmetrics%gcc
+  #- py-triton@main%gcc
+  #- py-torch-nvidia-apex@master%gcc
+  - py-torch-nvidia-apex@master%gcc +fast_layer_norm +dist_adam
+  - py-huggingface-hub%gcc
+  - py-nvidia-dali%gcc
+  - py-zarr%gcc
+  #- py-onnx%gcc
+  - py-nvtx%gcc
+  - py-deepspeed%gcc
+  - py-accelerate%gcc
+  - py-datasets%gcc
+  - py-tokenizers%gcc
+  - sentencepiece@0.1.99%gcc ~with-TCMalloc
+  - py-sentencepiece@0.1.99%gcc
+  - py-transformers%gcc
+  - py-einops%gcc
+  - py-xskillscore
+  - py-properscoring
+  variants:
+  - +mpi
+  - +cuda
+  - cuda_arch=90
+  views:
+    default:
+      link: all
+
