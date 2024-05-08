@@ -1,0 +1,7 @@
+name: makani-base
+spack:
+  commit: origin/fix/py-torch-nvidia-apex-config-settings
+  repo: https://github.com/boeschf/spack.git
+store: /user-environment
+description: Toolchain for Machine Learning, PyTorch and other development tools
+
