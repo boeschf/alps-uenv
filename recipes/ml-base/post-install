@@ -1,6 +1,7 @@
 #! /bin/bash
 
 mpi_loc=$(spack -C {{ env.config }} location -i cray-mpich)
+pybind11_loc=$(spack -C /user-environment/config location -i py-pybind11)
 
 . {{ env.mount }}/env/._default/*/activate.sh
 
@@ -39,12 +40,12 @@ install_pp() {(
     for env_assignment in "${extra_envs[@]}"; do
         export ${env_assignment}
     done
-    python \
+    eval "python \
         -m pip -vvv --no-input --no-cache-dir --disable-pip-version-check \
         install --no-build-isolation --no-warn-script-location --no-index \
         ${extra_config2} \
         ${extra_config} \
-        git+${git_url}${git_tag}
+        git+${git_url}${git_tag}"
 
     echo ""
 )}
@@ -87,6 +88,9 @@ install_pp -u "https://github.com/NVIDIA/TransformerEngine.git" -t "@main" \
 #    -e "TORCH_CUDA_ARCH_LIST=9.0" \
 #    -c "--config-settings \"--build-option=--cpp_ext\" --config-settings \"--build-option=--cuda_ext\"" \
 #    -q "--global-option=\"--cpp_ext\" --global-option=\"--cuda_ext\""
+install_pp -u "https://github.com/NVIDIA/apex.git" -t "@master" \
+    -e "TORCH_CUDA_ARCH_LIST=9.0 CPLUS_INCLUDE_PATH=${pybind11_loc}/include LD_LIBRARY_PATH=${pybind11_loc}/lib" \
+    -c "--config-settings=compile-args=-j255 --config-settings=--global-option=\"--cpp_ext\" --config-settings=--global-option=\"--cuda_ext\" --config-settings=--global-option=\"--distributed_adam\" --config-settings=--global-option=\"--fast_layer_norm\""
 
 # nltk
 #install_pp -u "https://github.com/nltk/nltk.git" -t "@f2a92bd7e360e39a4439e4d97540fd68f2721451"

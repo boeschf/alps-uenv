@@ -1,7 +1,7 @@
 ml-base-env:
   compiler:
       - toolchain: gcc
-        spec: gcc
+        spec: gcc@12
       - toolchain: llvm
         spec: llvm@17
   mpi:
@@ -16,7 +16,7 @@ ml-base-env:
   - cuda@12.3%gcc
   - fftw%gcc
   - fmt%gcc
-  - hdf5%gcc
+  - hdf5%gcc +direct-vfd
   - nccl%gcc
   - ninja%gcc
   - gperftools%gcc
@@ -27,7 +27,7 @@ ml-base-env:
   - swig%gcc
   - libaio%gcc
   - python@3.11%gcc
-  - py-pip%gcc
+  - py-pip@23.1:%gcc
   - py-cython%gcc
   - py-setuptools%gcc
   - py-setuptools-scm%gcc +toml
@@ -49,7 +49,7 @@ ml-base-env:
   - py-torchmetrics%gcc
   #- py-triton@main%gcc
   #- py-torch-nvidia-apex@master%gcc
-  - py-torch-nvidia-apex@master%gcc +fast_layer_norm +dist_adam
+  #- py-torch-nvidia-apex@master%gcc +fast_layer_norm +dist_adam
   - py-huggingface-hub%gcc
   - py-nvidia-dali%gcc
   - py-zarr%gcc
