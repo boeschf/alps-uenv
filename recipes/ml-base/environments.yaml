@@ -27,7 +27,9 @@ ml-base-env:
   - swig%gcc
   - libaio%gcc
   - python@3.11%gcc
-  - py-pip@23.1:%gcc
+  - python-venv%gcc
+  #- py-pip@23.1:%gcc
+  - py-pip%gcc
   - py-cython%gcc
   - py-setuptools%gcc
   - py-setuptools-scm%gcc +toml
@@ -37,13 +39,13 @@ ml-base-env:
   - py-pathspec%gcc
   - py-pybind11%gcc
   - py-pluggy%gcc
-  - py-ninja%gcc
+  #- py-ninja@1.10.2%gcc
   - py-numpy%gcc
   - py-sympy%gcc
   - py-scipy%gcc
   - py-pytest%gcc
   - py-pytest-xdist%gcc
-  - py-torch@2.2.2%gcc +distributed +cuda +cudnn +nccl +mpi
+  - py-torch@2.3.0%gcc +distributed +cuda +cudnn +nccl +mpi +custom-protobuf
   - py-torchvision%gcc +ffmpeg +nvjpeg +video_codec
   - py-torchaudio%gcc
   - py-torchmetrics%gcc
@@ -59,13 +61,19 @@ ml-base-env:
   - py-accelerate%gcc
   - py-datasets%gcc
   - py-tokenizers%gcc
-  - sentencepiece@0.1.99%gcc ~with-TCMalloc
+  - sentencepiece%gcc ~with-TCMalloc
   - py-sentencepiece@0.1.99%gcc
   - py-transformers%gcc
   - py-einops%gcc
   - py-hatchling%gcc
   - arrow%gcc +parquet +snappy +zlib +zstd +brotli +compute 
+  - py-pyarrow%gcc +dataset
   - py-nltk%gcc
+  - py-arrow%gcc
+  - py-flash-attn@2.4.2%gcc
+  #- py-transformer-engine%gcc +userbuffers
+  - py-tensorstore%gcc
+  - py-xarray +parallel +io
   variants:
   - +mpi
   - +cuda

@@ -1,7 +1,9 @@
 name: ml-base
 spack:
-  commit: origin/fix/py-torch-nvidia-apex-config-settings
-  repo: https://github.com/boeschf/spack.git
+  #commit: origin/fix/py-torch-nvidia-apex-config-settings
+  #repo: https://github.com/boeschf/spack.git
+  commit: upgrade_to_v0.22
+  repo: file:///bret/scratch/cscs/boeschf/uenv-work2/spack
 store: /user-environment
 description: Toolchain for Machine Learning, PyTorch and other development tools
 

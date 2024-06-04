@@ -1,7 +1,41 @@
 #! /bin/bash
 
+#home = /user-environment/linux-sles15-neoverse_v2/gcc-12.3.0/python-3.11.7-ad3s55au3y32t3qsi3mloxutyont4alp/bin
+#include-system-site-packages = false
+#version = 3.11.7
+#executable = /user-environment/linux-sles15-neoverse_v2/gcc-12.3.0/python-3.11.7-ad3s55au3y32t3qsi3mloxutyont4alp/bin/python3.11
+#command =
+#    /user-environment/linux-sles15-neoverse_v2/gcc-12.3.0/python-3.11.7-ad3s55au3y32t3qsi3mloxutyont4alp/bin/python3.11
+#    -m venv --without-pip
+#    /user-environment/linux-sles15-neoverse_v2/gcc-12.3.0/python-venv-1.0-vl5q4szvym4lldhlj7tdl3zx34ckdfcq
+#
+#
+#'/user-environment/linux-sles15-neoverse_v2/gcc-12.3.0/python-venv-1.0-vl5q4szvym4lldhlj7tdl3zx34ckdfcq/bin/python3'
+#'-m' 'pip' '-vvv' '--no-input' '--no-cache-dir' '--disable-pip-version-check'
+#'install' '--no-deps' '--ignore-installed' '--no-build-isolation'
+#'--no-warn-script-location' '--no-index'
+#'--prefix=/user-environment/linux-sles15-neoverse_v2/gcc-12.3.0/py-triton-2.1.0-dvwcyfk4ehhku2zg6ahlhpojqgcz45qj'
+#'.'
+#
+#py_venv_loc=$(spack -C /user-environment/config location -i python-venv)
+#
+#py_venv_path="${py_venv_loc%/}"
+#py_venv_exe="${py_venv_path}/bin/python3"
+#prefix=$(dirname "${py_venv_path}")
+#
+#echo "py_venv_path = ${py_venv_loc}"
+#echo "prefix = ${prefix}"
+##${py_venv_loc}/bin/python3 -m pip freeze
+#
+#spack -C /user-environment/config config blame
+#spack -C /user-environment/config find --long --paths
+#spack -C /user-environment/config env list
+
+
 mpi_loc=$(spack -C {{ env.config }} location -i cray-mpich)
 pybind11_loc=$(spack -C /user-environment/config location -i py-pybind11)
+
+spack -C /user-environment/config config blame
 
 . {{ env.mount }}/env/._default/*/activate.sh
 
@@ -55,16 +89,16 @@ install_pp() {(
 # pyarrow-hotfix
 install_pp -u "https://github.com/pitrou/pyarrow-hotfix.git" -t "@v0.6"
 
-# flash-attention
-# FLASH_ATTENTION_FORCE_CXX11_ABI=TRUE - not sure about this one
-install_pp -u "https://github.com/Dao-AILab/flash-attention.git" -t "@v2.4.2" \
-    -e "FLASH_ATTENTION_FORCE_BUILD=TRUE"
+## flash-attention
+## FLASH_ATTENTION_FORCE_CXX11_ABI=TRUE - not sure about this one
+#install_pp -u "https://github.com/Dao-AILab/flash-attention.git" -t "@v2.4.2" \
+#    -e "FLASH_ATTENTION_FORCE_BUILD=TRUE"
 
-## dacite
-#install_pp -u "https://github.com/konradhalas/dacite.git" -t "@v1.8.1"
-
-## accelerate
-#install_pp -u "https://github.com/huggingface/accelerate.git" -t "@v0.27.2"
+### dacite
+##install_pp -u "https://github.com/konradhalas/dacite.git" -t "@v1.8.1"
+#
+### accelerate
+##install_pp -u "https://github.com/huggingface/accelerate.git" -t "@v0.27.2"
 
 echo ""
 echo "mpi is at ${mpi_loc}"
@@ -106,4 +140,9 @@ install_pp -u "https://github.com/NVIDIA/apex.git" -t "@master" \
 #    -e "TRITON_BUILD_WITH_CLANG_LLD=true"
 install_pp -u "https://github.com/openai/triton.git" -t "@989adb9a29496c22a36ef82ca69cad5dad536b9c#subdirectory=python" \
     -e "TRITON_BUILD_WITH_CLANG_LLD=true"
+
+install_pp -u "https://github.com/mlcommons/logging.git" -t "@2.1.0-rc1"
+
+install_pp -u "https://github.com/NVIDIA/mlperf-common.git"
+
 
