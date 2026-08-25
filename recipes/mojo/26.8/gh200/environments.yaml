@@ -1,0 +1,31 @@
+mojo-env:
+  compiler: [gcc]
+  network:
+      mpi: cray-mpich@9.1 +cuda
+  unify: true
+  specs:
+  - cmake
+  - ninja
+  - meson
+  - libtree
+  - python
+  - cuda
+  - nccl
+  - aws-ofi-nccl
+  - mojo@1.1.0-dev20260823
+  - max@26.6.0-dev20260823
+  variants:
+  - +mpi
+  - +cuda
+  - cuda_arch=90a
+  views:
+    mojo:
+      link: all
+      uenv:
+        add_compilers: true
+        prefix_paths:
+          LD_LIBRARY_PATH: [lib, lib64, lib/max]
+        env_vars:
+          set:
+          - CUDA_HOME: "/user-environment/env/mojo"
+          - MODULAR_CRASH_REPORTING_ENABLED: "0"
