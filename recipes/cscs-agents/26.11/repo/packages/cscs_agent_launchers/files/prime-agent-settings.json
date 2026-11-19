@@ -1,0 +1,5 @@
+{
+  "defaultProvider": "cscs",
+  "defaultModel": "zai-org/GLM-5.3-Flash",
+  "quietStartup": true
+}

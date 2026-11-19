@@ -1,0 +1,65 @@
+{
+  "$schema": "https://opencode.ai/v2/config.json",
+  "model": "cscs/zai-org/GLM-5.3-Flash",
+  "agents": {
+    "title": {"model": "cscs/zai-org/GLM-5.3-Flash"}
+  },
+  "permissions": [
+    {"action": "external_directory", "resource": "*", "effect": "ask"}
+  ],
+  "providers": {
+    "cscs": {
+      "package": "@opencode/ai/providers/anthropic",
+      "name": "CSCS Inference",
+      "settings": {
+        "baseURL": "https://api.inference.cscs.ch/v1",
+        "systemMessageMode": "system",
+        "apiKey": "{env:CSCS_INFERENCE_API_KEY}"
+      },
+      "models": {
+        "google/gemma-4-31B-it": {
+          "name": "gemma-4-31B-it [CSCS]",
+          "limit": {"context": 262144, "output": 32768},
+          "capabilities": {"tools": true, "input": ["text", "image"], "output": ["text"]},
+          "variants": []
+        },
+        "Qwen/Qwen3.8-27B-FP8": {
+          "name": "Qwen3.8-27B-FP8 [CSCS]",
+          "limit": {"context": 262144, "output": 32768},
+          "capabilities": {"tools": true, "input": ["text", "image"], "output": ["text"]},
+          "variants": []
+        },
+        "Qwen/Qwen3.8-Flash-Next-FP8": {
+          "name": "Qwen3.8-Flash-Next-FP8 [CSCS]",
+          "limit": {"context": 262144, "output": 32768},
+          "capabilities": {"tools": true, "input": ["text", "image"], "output": ["text"]},
+          "variants": []
+        },
+        "swiss-ai/Apertus-v1.5-70B": {
+          "name": "Apertus-v1.5-70B [CSCS]",
+          "limit": {"context": 262144, "output": 32768},
+          "capabilities": {"tools": true, "input": ["text", "image"], "output": ["text"]},
+          "variants": []
+        },
+        "swiss-ai/Apertus-v1.5-8B": {
+          "name": "Apertus-v1.5-8B [CSCS]",
+          "limit": {"context": 262144, "output": 32768},
+          "capabilities": {"tools": true, "input": ["text", "image"], "output": ["text"]},
+          "variants": []
+        },
+        "zai-org/GLM-5.3-Flash": {
+          "name": "GLM-5.3-Flash [CSCS]",
+          "limit": {"context": 1048576, "output": 32768},
+          "capabilities": {"tools": true, "input": ["text", "image"], "output": ["text"]},
+          "variants": []
+        },
+        "zai-org/GLM-5.3": {
+          "name": "GLM-5.3 [CSCS]",
+          "limit": {"context": 1048576, "output": 32768},
+          "capabilities": {"tools": true, "input": ["text"], "output": ["text"]},
+          "variants": []
+        }
+      }
+    }
+  }
+}

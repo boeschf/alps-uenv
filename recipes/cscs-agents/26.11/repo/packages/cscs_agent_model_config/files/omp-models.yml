@@ -1,0 +1,56 @@
+# CSCS production inference service for Oh-My-Pi.
+# `apiKey` names the environment variable to read; no key is stored here.
+providers:
+  cscs:
+    baseUrl: https://api.inference.cscs.ch/v1
+    apiKey: CSCS_INFERENCE_API_KEY
+    api: anthropic-messages
+    authHeader: true
+    disableStrictTools: true
+    models:
+      - id: google/gemma-4-31B-it
+        name: gemma-4-31B-it [CSCS]
+        reasoning: false
+        contextWindow: 262144
+        maxTokens: 32768
+        input: [text, image]
+      - id: Qwen/Qwen3.8-27B-FP8
+        name: Qwen3.8-27B-FP8 [CSCS]
+        reasoning: false
+        tokenizer: qwen3
+        contextWindow: 262144
+        maxTokens: 32768
+        input: [text, image]
+      - id: Qwen/Qwen3.8-Flash-Next-FP8
+        name: Qwen3.8-Flash-Next-FP8 [CSCS]
+        reasoning: false
+        tokenizer: qwen3
+        contextWindow: 262144
+        maxTokens: 32768
+        input: [text, image]
+      - id: swiss-ai/Apertus-v1.5-70B
+        name: Apertus-v1.5-70B [CSCS]
+        reasoning: false
+        contextWindow: 262144
+        maxTokens: 32768
+        input: [text, image]
+      - id: swiss-ai/Apertus-v1.5-8B
+        name: Apertus-v1.5-8B [CSCS]
+        reasoning: false
+        contextWindow: 262144
+        maxTokens: 32768
+        input: [text, image]
+      - id: zai-org/GLM-5.3-Flash
+        name: GLM-5.3-Flash [CSCS]
+        reasoning: false
+        tokenizer: glm5
+        contextWindow: 1048576
+        maxTokens: 32768
+        input: [text, image]
+      - id: zai-org/GLM-5.3
+        name: GLM-5.3 [CSCS]
+        reasoning: false
+        tokenizer: glm5
+        contextWindow: 1048576
+        maxTokens: 32768
+        input: [text]

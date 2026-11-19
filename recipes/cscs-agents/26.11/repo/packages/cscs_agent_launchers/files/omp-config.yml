@@ -1,0 +1,13 @@
+startup:
+  quiet: true
+  showSplash: false
+  checkUpdate: false
+  changelogMode: hidden
+tui:
+  resizeScrollback: preserve
+modelRoles:
+  default: cscs/zai-org/GLM-5.3-Flash
+  smol: cscs/Qwen/Qwen3.8-27B-FP8
+  slow: cscs/zai-org/GLM-5.3
+modelProviderOrder:
+  - cscs

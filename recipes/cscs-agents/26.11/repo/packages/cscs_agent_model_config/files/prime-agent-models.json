@@ -1,0 +1,68 @@
+{
+  "providers": {
+    "cscs": {
+      "name": "CSCS Inference",
+      "baseUrl": "https://api.inference.cscs.ch",
+      "apiKey": "!printenv CSCS_INFERENCE_API_KEY",
+      "api": "anthropic-messages",
+      "models": [
+        {
+          "id": "google/gemma-4-31B-it",
+          "name": "gemma-4-31B-it [CSCS]",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "Qwen/Qwen3.8-27B-FP8",
+          "name": "Qwen3.8-27B-FP8 [CSCS]",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "Qwen/Qwen3.8-Flash-Next-FP8",
+          "name": "Qwen3.8-Flash-Next-FP8 [CSCS]",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "swiss-ai/Apertus-v1.5-70B",
+          "name": "Apertus-v1.5-70B [CSCS]",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "swiss-ai/Apertus-v1.5-8B",
+          "name": "Apertus-v1.5-8B [CSCS]",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "zai-org/GLM-5.3-Flash",
+          "name": "GLM-5.3-Flash [CSCS]",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "contextWindow": 1048576,
+          "maxTokens": 32768
+        },
+        {
+          "id": "zai-org/GLM-5.3",
+          "name": "GLM-5.3 [CSCS]",
+          "reasoning": false,
+          "input": ["text"],
+          "contextWindow": 1048576,
+          "maxTokens": 32768
+        }
+      ]
+    }
+  }
+}
