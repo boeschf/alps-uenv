@@ -13,6 +13,19 @@ agents:
     - crun
     - catatonit
     - fuse-overlayfs
+    - rust
+    - neovim
+    - git
+    - ripgrep
+    - fd
+    - fzf
+    - lazygit
+    - tree-sitter+cli
+    - node-js
+    - curl
+    - unzip
+    - tar
+    - gzip
     # Keep Stackinator's image packer alive across cleanup: runtime.
     - squashfs
   views:

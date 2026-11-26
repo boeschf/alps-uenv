@@ -5,7 +5,7 @@ spack:
   commit: v1.2.2
   packages:
     repo: https://github.com/spack/spack-packages.git
-    commit: 7318c6ac1a452a5e9f433d6de81841a036114e8f # 21 August 26
+    commit: 16ab37581abc3dd901b932508b5a1fd3c5f7c1f3 # 26 November 2026
 description: "CSCS coding-agent harnesses 26.11 with production inference configuration"
 default-view: agents
 cleanup: runtime
